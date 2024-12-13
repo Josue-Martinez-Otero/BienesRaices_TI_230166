@@ -45,22 +45,14 @@ const emailRegistro = async (datos) => {
                 </a>
             </div>
 
-            <p style="font-size: 14px; line-height: 1.5; margin: 10px 0;">Si no puedes hacer clic en el enlace, copia y pega esta URL en tu navegador:</p>
-            <p style="font-size: 14px; line-height: 1.5; margin: 10px 0; color: #000000;">https://bienesraices.com/confirmar/${token}</p>
+            
             <p style="font-size: 14px; line-height: 1.5; margin: 10px 0;">Si no reconoces este registro, puedes ignorar este mensaje. Si necesitas ayuda, no dudes en contactarnos en bienesraices_support@gmail.com.</p>
             <p style="font-size: 14px; line-height: 1.5; margin: 10px 0;">¡Estamos emocionados de acompañarte en tu viaje para encontrar la propiedad perfecta!</p>
             <p style="font-size: 14px; line-height: 1.5; margin: 10px 0;">Saludos cordiales por parte del CEO de BienesRaices:</p>
             <img src="https://i.imgur.com/zbHa3eP.png" width="150px">
             <p style="font-size: 14px; line-height: 1.5; margin: 10px 0;">Josue Atlai Martinez Otero</p>
         </div>
-
-        <!-- Redes Sociales -->
         <div>
-            <div style="display: flex; justify-content: center;">
-                <a href="#" style="margin-right: 10px;"><img src="cid:icon_facebook" width="30px"></a>
-                <a href="#" style="margin-right: 10px;"><img src="cid:icon_instagram" width="30px"></a>
-                <a href="#"><img src="cid:icon_x" width="30px"></a>
-            </div>
             <p style="color: #000000; text-align: center; font-size: 14px; padding: 10px; border-top: 1px solid #eaeaea;">© 2024 BienesRaices Todos los derechos reservados.</p>
         </div>
     </div>
@@ -138,11 +130,6 @@ const emailOlvidePassword = async (datos) => {
                         <p style="font-size: 14px; line-height: 1.5; margin: 10px 0">Josue Atlai Martinez Otero</p>
                     </div>
                     <div>
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" style="margin-right: 10px"><img src="cid:icon_facebook" width="30px"></a>
-                            <a href="#" style="margin-right: 10px"><img src="cid:icon_instagram" width="30px"></a>
-                            <a href="#"><img src="cid:icon_x" width="30px"></a>
-                        </div>
                         <p style="color: #585858; text-align: center; font-size: 14px; padding: 10px; border-top: 1px solid #eaeaea;">© 2024 BienesRaices Todos los derechos reservados.</p>
                     </div>
                 </div>
