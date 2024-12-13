@@ -23,6 +23,8 @@ router.post('/olvide-password', resetPassword);
 router.get('/olvide-password/:token', comprobarToken);
 router.post('/olvide-password/:token', nuevoPassword);
 
+
+
 router.get('/mensaje', async (req, res) => {
     const { usuarioId } = req.query;
     try {

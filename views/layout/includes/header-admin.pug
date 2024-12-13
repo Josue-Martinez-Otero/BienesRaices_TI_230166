@@ -6,7 +6,7 @@ header.bg-none.p-4
 
         nav(class="my-5 text-sm md:flex md:items-center md:gap-5 font-bold text-white hidden") 
             a.py-3.px-5.rounded-lg.text-black(href="/mis-propiedades" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out") Mis propiedades 
-            a.py-3.px-5.rounded-lg.text-black(href="" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out") Mi perfil
+            a.py-3.px-5.rounded-lg.text-black(href="/usuario" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out") Mi perfil
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
                 input.py-3.px-5.rounded-lg.text-black(type="submit" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out" value="Cerrar Sesión")    
