@@ -1,11 +1,10 @@
 {
   "name": "bienesraices220262",
   "version": "1.0.0",
-  "description": "Mi primer proyecto de Nodejs",
+  "description": "Tarea integradora",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "server": "nodemon index.js",
     "css": "postcss public/css/tailwind.css -o public/css/app.css --watch",
@@ -21,7 +20,7 @@
     "MySQL",
     "Sequelize"
   ],
-  "author": "v 1.0 - Esperanza Cruz Galindo, Adaptado por: Josue Atlai Martinez Otero",
+  "author": "v 1.0 - Esperanza Cruz Galindo, Adaptado por: Diego Miguel Rivera Chávez",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

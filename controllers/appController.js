@@ -1,8 +1,8 @@
-import { Precio, Categoria, Propiedad } from "../models/index.js"
+import { Precio, Categoria, Propiedad, Usuario } from "../models/index.js"
 import { Sequelize } from 'sequelize'
 
-const inicio = async (req, res) => {
 
+const inicio = async (req, res) => {
     const [categorias, precios, casas, departamentos] = await Promise.all([
         Categoria.findAll({ raw: true }),
         Precio.findAll({ raw: true }),
@@ -15,6 +15,10 @@ const inicio = async (req, res) => {
                 {
                     model: Precio,
                     as: 'precio'
+                },
+                {
+                    model: Usuario,
+                    as: 'usuario'
                 }
             ],
             order: [
@@ -30,6 +34,10 @@ const inicio = async (req, res) => {
                 {
                     model: Precio,
                     as: 'precio'
+                },
+                {
+                    model: Usuario,
+                    as: 'usuario'
                 }
             ],
             order: [
@@ -39,7 +47,7 @@ const inicio = async (req, res) => {
     ])
 
     res.render('inicio', {
-        pagina: 'Inicio',
+        page: 'Inicio',
         categorias,
         precios,
         casas,
@@ -48,31 +56,30 @@ const inicio = async (req, res) => {
     })
 }
 
+
+
+
+
 const categoria = async (req, res) => {
-
     const { id } = req.params
-
-    //comprobar que la cateoria exista 
-
+    //comprobar que la categoria exista 
     const categoria = await Categoria.findByPk(id)
 
     if (!categoria) {
         return res.redirect('/404')
     }
-
     //obtener propiedades de la categoria
-
     const propiedades = await Propiedad.findAll({
         where: {
             categoriaID: id
         },
         include: [
-            {model: Precio, as: 'precio'}
+            {model: Precio, as: 'precio'},
+            {model: Usuario, as: 'usuario'}
         ]
     })
-
     res.render('categoria',{
-        pagina: `${categoria.nombre}s en venta`,
+        page: `${categoria.nombre}s en venta`,
         propiedades,
         csrfToken: req.csrfToken()
     })
@@ -80,22 +87,18 @@ const categoria = async (req, res) => {
 
 const noEncontrado = (req, res) => {
     res.render('404',{
-        pagina: 'No Encontrado',
+        page: 'No Encontrado',
         csrfToken: req.csrfToken()
     })
 }
 
 const buscador = async (req, res) => {
     const {termino} = req.body
-
     //validar que termino no este vacio
-
     if(!termino.trim()){
         return res.redirect('back')
     }
-
     //consultar las propiedades
-
     const propiedades = await Propiedad.findAll({
         where: {
             titulo: {
@@ -103,12 +106,12 @@ const buscador = async (req, res) => {
             }
         },
         include: [
-            {model: Precio , as: 'precio'}
+            {model: Precio , as: 'precio'},
+            {model: Usuario, as: 'usuario'}
         ]
     })
-
     res.render('busqueda',{
-        pagina: 'Resultados de la busqueda',
+        page: 'Resultados de la busqueda',
         propiedades,
         csrfToken: req.csrfToken()
     })

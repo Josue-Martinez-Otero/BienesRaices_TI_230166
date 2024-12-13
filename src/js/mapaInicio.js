@@ -1,13 +1,13 @@
 
 (function () {
-    const lat = 20.67444163271174;
-    const lng = -103.38739216304566;
+    const lat = 20.174722;
+    const lng = -98.051861;
     const mapa = L.map('mapa-inicio').setView([lat, lng], 13);
 
     let markers = new L.FeatureGroup().addTo(mapa)
     let propiedades = [];
-    //Filtros
-
+    
+    // Filtros
     const filtros = {
         categoria: '',
         precio: ''
@@ -21,8 +21,7 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mapa)
 
-    //Filtrado de categorias y precios
-
+    // Filtrado de categorias y precios
     categoriasSelect.addEventListener('change', e => {
         filtros.categoria = +e.target.value
         filtrarPropiedades();
@@ -32,7 +31,6 @@
         filtros.precio = +e.target.value
         filtrarPropiedades();
     })
-
 
     const obtenerPropiedades = async () => {
         try {
@@ -49,23 +47,22 @@
 
     const mostrarPropiedades = propiedades => {
 
-        //Limpiar markers previos
-
+        // Limpiar markers previos
         markers.clearLayers()
 
         propiedades.forEach(propiedad => {
-            //Agregar los pines
-
+            
+            // Agregar los pines
             const marker = new L.marker([propiedad?.lat, propiedad?.lng], {
                 autoPan: true
             })
                 .addTo(mapa)
                 .bindPopup(`
-            <p class="text-indigo-600 font-bold">${propiedad.categoria.nombre}</p>
+            <p class="text-redNCS font-bold">${propiedad.categoria.nombre}</p>
             <h1 class="text-xl font-extrabold uppercase my-5"> ${propiedad.titulo} </h1>
             <img src="/uploads/${propiedad?.imagen}" alt="Imagen de la propiedad ${propiedad.titulo}">
             <p class="text-gray-600 font-bold">${propiedad.precio.nombre}</p>
-            <a href="/propiedad/${propiedad.id}" class="bg-indigo-600 block p-2 text-center font-bold uppercase">Ver Propiedad</a>
+            <a href="/propiedad/${propiedad.id}" class="bg-redNCS block p-2 text-center font-bold rounded-lg uppercase">Ver Propiedad</a>
             `)
 
             markers.addLayer(marker)

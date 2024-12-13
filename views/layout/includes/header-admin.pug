@@ -1,11 +1,12 @@
-header.bg-indigo-600.p-4 
-    .container.mx-auto.flex.justify-between.items-center 
-        h1.text-2xl.text-white.font-extrabold.text-center Bienes 
-            span.font-normal Raíces
+header.bg-none.p-4 
+    .container.mx-auto.flex.justify-between.items-center
+        a.mr-5(href="/" class="mb-1.5")
+            h1.text-3xl.text-redNCS.font-extrabold.text-center Bienes 
+                span.font-normal.text-black Raíces
 
-        nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades") Mis propiedades 
-            a(href="") Mi perfil
+        nav(class="my-5 text-sm md:flex md:items-center md:gap-5 font-bold text-white hidden") 
+            a.py-3.px-5.rounded-lg.text-black(href="/mis-propiedades" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out") Mis propiedades 
+            a.py-3.px-5.rounded-lg.text-black(href="" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out") Mi perfil
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-indigo-800 py-2 px-10 rounded-lg" value="Cerrar Sesión")    
+                input.py-3.px-5.rounded-lg.text-black(type="submit" class="hover:cursor-pointer hover:bg-redNCS-light hover:text-white transition ease-in-out" value="Cerrar Sesión")    

@@ -2,15 +2,19 @@ doctype html
 html(lang="es")
     head 
         meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device=width, initial-scale=1.0")
-        title Bienes Raíces | #{pagina}
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device=width, initial-scale=1.0")
+        link(rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon")
+        title Bienes Raíces | #{page}
         block styles
-        link(rel="stylesheet", href="/css/app.css")
-        
-    body.min-h-screen.bg-gray-50
-        include includes/header-app
-       
+        link(rel="stylesheet" href="/css/app.css")
+    //- Colores del background
+    body.min-h-screen(class="bg-gradient-to-b from-sky-50 to-gray-100")
+        if adminis
+            include includes/header-admin
+        else
+            include includes/header-app
+
         main(class="mx-auto container mt-10 px-2")
             block contenido
 
