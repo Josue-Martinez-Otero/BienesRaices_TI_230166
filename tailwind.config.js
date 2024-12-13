@@ -7,24 +7,24 @@ export default {
 			'space': '690px',
 		},
 		colors: {
-		  redNCS: {
-			light: '#ff455e',
-			DEFAULT: '#ff1b3a',
+			redNCS: {
+			  DEFAULT: "#33c3f7", // Nuevo valor para redNCS
+			  light: "#33c3f7",  // Nuevo valor para la variante light
+			},
+			lightRedNCS: {
+			  DEFAULT: "#FFFFFF",  // Nuevo valor para lightRedNCS
+			},
+			roseTaupe: {
+			  DEFAULT: "#fff19a",  // Nuevo valor para roseTaupe
+			},
+			taupeGray: {
+			  DEFAULT: "#5973be",  // Nuevo valor para taupeGray
+			},
+			white: {
+			  DEFAULT: "#FFFFFF",  // Nuevo valor para blanco
+			  dark: "#000000",     // Nuevo valor para negro
+			}
 		  },
-		  lightRedNCS: {
-			DEFAULT: '#fff2f4'
-		  },
-		  roseTaupe: {
-			DEFAULT: '#e58b8b'
-		  },
-		  taupeGray: {
-			DEFAULT: '#c3b3b3'
-		  },
-		  white: {
-			DEFAULT: '#fff',
-			dark: '#f7f7f7'
-		  }
-		},
 		keyframes: {
 		  fadeUp: {
 			'0%': {
