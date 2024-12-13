@@ -166,7 +166,7 @@ const agregarFotoPerfil = async (req, res, next) => {
         if (req.file) {
             usuario.image = req.file.filename;
         } else {
-            usuario.image = 'default.jpg';
+            usuario.image = 'default_.jpg';
         }
 
         await usuario.save();
