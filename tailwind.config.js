@@ -23,7 +23,8 @@ export default {
 			white: {
 			  DEFAULT: "#FFFFFF",  // Nuevo valor para blanco
 			  dark: "#000000",     // Nuevo valor para negro
-			}
+			},
+			customBlue: '#5973BE',
 		  },
 		keyframes: {
 		  fadeUp: {
