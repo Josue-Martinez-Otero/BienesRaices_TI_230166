@@ -166,7 +166,7 @@ const agregarFotoPerfil = async (req, res, next) => {
         if (req.file) {
             usuario.image = req.file.filename;
         } else {
-            usuario.image = 'default_.jpg';
+            usuario.image = 'default.jpg';
         }
 
         await usuario.save();
@@ -315,7 +315,6 @@ const nuevoPassword = async (req, res) => {
         msg: 'El password se guardo correctamente'
     })
 }
-
 
 
 
