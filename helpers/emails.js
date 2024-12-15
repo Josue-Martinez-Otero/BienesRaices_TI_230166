@@ -101,7 +101,7 @@ const emailOlvidePassword = async (datos) => {
 
             <!-- Botón -->
             <div style="text-align: center; margin: 20px 0;">
-                <a href="${process.env.BACKEND_URL}:${process.env.BACKEND_PORT}/auth/olvide-password/${token}" 
+                <a href="${process.env.BACKEND_URL}:${process.env.BACKEND_PORT ?? 3001}/auth/olvide-password/${token}" 
                    style="background: #33c3f7; color: #FFFFFF; text-decoration: none; padding: 12px 20px; font-size: 16px; border-radius: 6px; display: inline-block;">
                    Restablecer Cuenta
                 </a>
