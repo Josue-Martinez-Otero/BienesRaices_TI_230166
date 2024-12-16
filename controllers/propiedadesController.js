@@ -410,6 +410,60 @@ const verMensajes = async (req, res) => {
     })
 }
 
+const responderMensaje = async (req, res) => {
+    const { id } = req.params;
+
+    if (req.method === 'GET') {
+        try {
+            // Busca el mensaje en la base de datos (reemplaza con tu modelo)
+            const mensaje = await Mensaje.findByPk(id);
+
+            if (!mensaje) {
+                return res.status(404).send('Mensaje no encontrado');
+            }
+
+            // Renderiza la vista para responder el mensaje
+            res.render('responder-mensaje', {
+                pagina: 'Responder Mensaje',
+                mensaje,
+                csrfToken: req.csrfToken()
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error del servidor');
+        }
+    } else if (req.method === 'POST') {
+        try {
+            const { respuesta } = req.body; // Obtienes la respuesta enviada en el formulario
+
+            // Aquí procesas la respuesta y la guardas en la base de datos
+            const mensaje = await Mensaje.findByPk(id); // Encuentra el mensaje por su ID
+
+            if (!mensaje) {
+                return res.status(404).send('Mensaje no encontrado');
+            }
+
+            // Guarda la respuesta en el mensaje
+            mensaje.respuesta = respuesta; // Asume que tienes un campo 'respuesta' en el modelo
+            mensaje.estado = 'respondido'; // Cambia el estado si es necesario
+
+            // Guarda el mensaje actualizado
+            await mensaje.save();
+
+            console.log(`Respuesta enviada al mensaje ${id}: ${respuesta}`);
+
+            // Redirige después de guardar la respuesta
+            res.redirect('/mis-propiedades');
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error del servidor');
+        }
+    }
+};
+
+
+
+
 export {
     admin,
     crear,
@@ -422,6 +476,7 @@ export {
     mostrarPropiedad,
     enviarMensaje,
     verMensajes,
-    cambiarEstado
+    cambiarEstado,
+    responderMensaje
 }
 

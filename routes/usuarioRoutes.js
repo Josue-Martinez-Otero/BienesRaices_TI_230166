@@ -22,7 +22,8 @@ router.post('/olvide-password', resetPassword);
 //Almacena el nuevo password
 router.get('/olvide-password/:token', comprobarToken);
 router.post('/olvide-password/:token', nuevoPassword);
-
+// Ruta para responder mensaje
+//router.post('/responder-mensaje/:id', responderMensaje);
 
 
 router.get('/mensaje', async (req, res) => {
