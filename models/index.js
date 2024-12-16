@@ -8,6 +8,7 @@ Propiedad.belongsTo(Precio, { foreignKey: 'precioID' })
 Propiedad.belongsTo(Categoria, { foreignKey: 'categoriaID' })
 Propiedad.hasMany(Mensaje, { foreignKey: 'propiedadID' })
 Propiedad.belongsTo(Usuario, { foreignKey: 'usuarioID' })
+
 Usuario.hasMany(Propiedad, { foreignKey: 'usuarioID' })
 
 Mensaje.belongsTo(Propiedad, { foreignKey: 'propiedadID' })

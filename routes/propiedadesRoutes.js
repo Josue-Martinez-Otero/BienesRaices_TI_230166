@@ -1,9 +1,11 @@
 import express from 'express'
 import { body } from 'express-validator'
-import { admin, crear, guardar, agregarImagen, almacenarImagen, editar, guardarCambios, eliminar, mostrarPropiedad, enviarMensaje, verMensajes, cambiarEstado } from '../controllers/propiedadesController.js'
+import { admin, crear, guardar, agregarImagen, almacenarImagen, editar, guardarCambios, eliminar, mostrarPropiedad, enviarMensaje, verMensajes, cambiarEstado, responderMensaje} from '../controllers/propiedadesController.js'
 import protegerRuta from '../middleware/protegerRuta.js'
 import upload from '../middleware/subirImagen.js'
 import identificarUsuario from '../middleware/identificarUsuario.js'
+
+
 
 const router = express.Router()
 
@@ -82,5 +84,17 @@ router.get('/mensajes/:id',
     protegerRuta,
     verMensajes
 )
+
+// Ruta para mostrar el formulario para responder mensaje
+// Mostrar formulario para responder mensaje
+router.get('/responder-mensaje/:id', protegerRuta, responderMensaje);
+
+// Procesar la respuesta enviada desde el formulario
+router.post('/responder-mensaje/:id', protegerRuta, 
+    body('respuesta').notEmpty().withMessage('La respuesta no puede estar vacía'),
+    responderMensaje
+);
+
+
 
 export default router

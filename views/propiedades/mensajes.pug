@@ -1,4 +1,4 @@
-extends ../layout/admin 
+extends ../layout/admin
 
 block contenido
     h2(class="text-2xl font-bold text-center my-10")= page
@@ -7,23 +7,30 @@ block contenido
 
     div(class="mx-auto max-w-4xl bg-white shadow rounded-xl")
 
-        if mensajes.length 
-            ul 
-                each mensaje in mensajes 
+        if mensajes.length
+            ul
+                each mensaje in mensajes
                     li(class="border-gray-200 border-b p-5")
                         .flex
-                            img(src=`/profile_images/${mensaje.usuario.image}` class="w-24 rounded-full mr-5")
+                            img(src=`/profile_images/${mensaje.usuario.image}` class="w-24 h-24 rounded-full object-cover mr-5") 
                             div
-                                p(class="font-bold text-gray-800") Nombre: 
+                                p(class="font-bold text-gray-800") Nombre:
                                     span(class="font-normal")= mensaje.usuario.nombre
 
-                                p(class="font-bold text-gray-800") Email: 
+                                p(class="font-bold text-gray-800") Email:
                                     span(class="font-normal")= mensaje.usuario.email    
 
-                                p(class="font-bold text-gray-800") Mensaje: 
+                                p(class="font-bold text-gray-800") Mensaje:
                                     span(class="font-normal")= mensaje.mensaje
 
-                                p(class="font-bold text-gray-800") Enviado: 
-                                    span(class="font-normal")= formatearFecha( mensaje.createdAt )       
-        else 
-            p(class="text-center text-gray-600 p-5") No hay Mensajes   
+                                p(class="font-bold text-gray-800") Enviado:
+                                    span(class="font-normal")= formatearFecha(mensaje.createdAt)
+
+                                if mensaje.respuesta
+                                    p(class="font-bold text-gray-800") Respuesta:
+                                        span(class="font-normal")= mensaje.respuesta
+                                else
+                                    a(href=`/responder-mensaje/${mensaje.id}` class="text-sm text-red-500") Responder
+
+        else
+            p(class="text-center text-gray-600 p-5") No hay Mensajes
